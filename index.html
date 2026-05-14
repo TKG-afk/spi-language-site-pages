@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SPI言語 初心者15分診断</title>
+    <meta
+      name="description"
+      content="SPI言語分野の短時間演習、正答率リザルト、問題ごとの解説を備えた試験対策Webサイト。"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260514-2" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#exam" aria-label="SPI言語 初心者15分診断 ホーム">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>SPI言語 初心者15分診断</span>
+      </a>
+      <nav class="top-nav" aria-label="主要ナビゲーション">
+        <a href="#exam">試験問題</a>
+        <a href="#result">リザルト</a>
+        <a href="#review">解説</a>
+      </nav>
+    </header>
+
+    <main id="app" class="app" aria-live="polite"></main>
+
+    <template id="exam-template">
+      <section class="exam-layout" aria-labelledby="exam-title">
+        <div class="floating-timer" data-timer-state="safe">
+          <span>残り時間</span>
+          <strong data-time-left>15:00</strong>
+          <small data-time-status></small>
+        </div>
+        <aside class="exam-status" aria-label="試験状況">
+          <div class="status-visual" aria-hidden="true">
+            <div class="ring">
+              <span data-current-question>1</span>
+              <small>問目</small>
+            </div>
+          </div>
+          <div class="status-list">
+            <p>
+              <span>科目</span>
+              <strong>言語</strong>
+            </p>
+            <p>
+              <span>問題内容</span>
+              <strong>熟語・長文・空欄補充</strong>
+            </p>
+            <p>
+              <span>難易度</span>
+              <strong>就活初心者</strong>
+            </p>
+            <p>
+              <span>制限時間</span>
+              <strong>15分 / 40問</strong>
+            </p>
+          </div>
+          <button class="ghost-button" type="button" data-reset>最初から</button>
+        </aside>
+
+        <section class="question-panel">
+          <div class="question-head">
+            <div>
+              <p class="eyebrow">SPI対策模試</p>
+              <h1 id="exam-title">試験問題</h1>
+              <p class="lead">ジャンル: 言語 / 対象: SPIを勉強し始めた就活初心者</p>
+            </div>
+            <p class="question-count">
+              <span data-progress-text>1 / 40</span>
+            </p>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <span data-progress-bar></span>
+          </div>
+          <article class="question-body">
+            <p class="tag" data-question-category></p>
+            <h2 data-question-title></h2>
+            <p class="question-text" data-question-text></p>
+            <form class="choices" data-choice-form></form>
+          </article>
+          <div class="exam-actions">
+            <button class="ghost-button" type="button" data-prev>戻る</button>
+            <button class="primary-button" type="button" data-next>次へ進む</button>
+          </div>
+        </section>
+      </section>
+    </template>
+
+    <template id="result-template">
+      <section class="result-layout" aria-labelledby="result-title">
+        <div class="result-hero">
+          <p class="eyebrow">Result</p>
+          <h1 id="result-title">リザルト</h1>
+          <div class="score-meter" aria-label="正答率">
+            <span data-score-percent>0%</span>
+          </div>
+          <p class="result-message" data-result-message></p>
+        </div>
+        <section class="result-detail" aria-label="設問別結果">
+          <div class="section-head">
+            <h2>問題別スコア</h2>
+            <button class="primary-button" type="button" data-review-all>解説を見る</button>
+          </div>
+          <div class="result-list" data-result-list></div>
+          <div class="result-actions">
+            <button class="ghost-button" type="button" data-retry>もう一度受ける</button>
+          </div>
+        </section>
+      </section>
+    </template>
+
+    <template id="review-template">
+      <section class="review-layout" aria-labelledby="review-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Review</p>
+            <h1 id="review-title">問題ごとの解説</h1>
+          </div>
+          <a class="primary-link" href="#result">リザルトへ</a>
+        </div>
+        <div class="review-list" data-review-list></div>
+      </section>
+    </template>
+
+    <script src="./app.js?v=20260514-2"></script>
+  </body>
+</html>
